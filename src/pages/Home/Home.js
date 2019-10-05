@@ -2,7 +2,7 @@ import Button from '@material-ui/core/Button'
 import CountUp from 'react-countup'
 import Group from '@material-ui/icons/Group'
 import React, { Component } from 'react'
-import { Activity } from 'rmw-shell'
+import { Activity, Scrollbar } from 'rmw-shell'
 import { GitHubIcon } from 'rmw-shell/lib/components/Icons'
 import { Line, Bar, Doughnut } from 'react-chartjs-2'
 import IconButton from '@material-ui/core/IconButton'
@@ -27,19 +27,21 @@ class Home extends Component {
 
     return(
         
-        <Activity 
+        <Activity
+        
         root={{flexGrow:1}}     
         title={intl.formatMessage({ id: 'Home' })}>      
-        
+        <Scrollbar>
         <div className="Posts">
         <Card title={'Dashboard'} content={'content'} adjective={'adjective'} description={'description'} buttonName={'Dashboard'} OnClick={() => {this.props.history.push({pathname: '/dashboard'});}} />
-        <Card title={'title'} content={'content'} adjective={'adjective'} description={'description'} buttonName={'Dashboard'}/>
-        <Card title={'title'} content={'content'} adjective={'adjective'} description={'description'} buttonName={'Dashboard'}/>
+        <Card title={'Relatorios'} content={'content'} adjective={'adjective'} description={'description'} buttonName={'Relatorios'} OnClick={() => {this.props.history.push({pathname: '/companies'});}}/>
+        <Card title={'Formulario'} content={'content'} adjective={'adjective'} description={'description'} buttonName={'Formulario'} OnClick={() => {this.props.history.push({pathname: '/tasks'});}}/>
         <Card title={'title'} content={'content'} adjective={'adjective'} description={'description'} buttonName={'Dashboard'}/>
         </div>
-        
-
+        </Scrollbar>
         </Activity>
+
+
     );
 };
 }

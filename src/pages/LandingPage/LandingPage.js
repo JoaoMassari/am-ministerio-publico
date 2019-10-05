@@ -151,7 +151,7 @@ const LandingPage = ({ classes, history, theme }) => {
         <meta name="theme-color" content={theme.palette.primary.main} />
         <meta name="apple-mobile-web-app-status-bar-style" content={theme.palette.primary.main} />
         <meta name="msapplication-navbutton-color" content={theme.palette.primary.main} />
-        <title>Veering</title>
+        <title>ONE</title>
       </Helmet>
       <AppBar position="static">
         <Toolbar disableGutters>
@@ -201,7 +201,7 @@ const LandingPage = ({ classes, history, theme }) => {
                 gutterBottom
                 className={classes.title}
               >
-                {'Veering'}
+                {'ONE'}
               </Typography>
               <Typography variant="h5" component="h2" color="inherit" gutterBottom className={classes.h5}>
                 {'Trabalho AM para o Ministério Público de São Paulo'}
@@ -228,14 +228,12 @@ const LandingPage = ({ classes, history, theme }) => {
                   <Typography>{'Integrantes'}</Typography>
                   <br />
                   <Typography className={classes.pos} color="textSecondary">
-                    {' '}
-                    Iara<br/>{' '}
+                    <br></br>
                     {' '}
                     joão Pedro Massari<br/>{' '}
+                    <br></br>
                     {' '}
                     Iago<br/>{' '}
-                    {' '}
-                    Carol<br/>{' '}
                   </Typography>
                 </CardContent>
                 <CardActions>

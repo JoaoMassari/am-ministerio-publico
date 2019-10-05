@@ -67,7 +67,8 @@ class Dashboard extends Component {
           data: daysData
         }
       ]
-    }
+    } 
+    
 
     let monthsLabels = []
     let monthsData = []

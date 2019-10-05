@@ -12,12 +12,12 @@ import { withTheme } from '@material-ui/core/styles'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Activity } from 'rmw-shell'
+import { Activity, Scrollbar } from 'rmw-shell'
 import Button from '@material-ui/core/Button';
 import Filter from '../../components/Filter/Filter'
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
-import './Tasks.css'
 
 const LazyNewPost = React.lazy(() => {
   return import('../../components/Filter/Filter');
@@ -78,6 +78,17 @@ class Tasks extends Component {
     buscar:false,
   }
 
+  
+getCpf = async () => {
+  let res = await axios.get('localhost:5000/consulta?cpf=123')
+  .then(function (response){
+    console.log('@@@response ' + response);
+  })
+  .catch(function(error){
+    console.log('@@@@ error'+ error);
+  })
+};
+
   handleChange = name => ({target: {value} }) => {
     this.setState({ 
       PersonalData: {
@@ -101,7 +112,8 @@ class Tasks extends Component {
         <React.Fragment >
         <Activity 
         root={{flexGrow:1}}     
-        title={intl.formatMessage({ id: 'Buscar' })}>   
+        title={intl.formatMessage({ id: 'Buscar' })}>
+        <Scrollbar>  
         <Switch>
         <div >
 
@@ -278,15 +290,17 @@ class Tasks extends Component {
           <Button variant="outlined" 
           style={{
               marginTop:60,
+              marginBottom:30,
               marginLeft: 20,
               marginRight: 40,
               width: 200,
           }}
-          /* onClick={() => {this.props.history.push({pathname: '/dashboard'});}}>Buscar</Button> */
-          onClick={() => {this.setState({buscar:true})}}>Confirmar</Button>
-          </form>:<Filter />}
+          onClick={() => {this.props.history.push({pathname: '/companies'})}}>Buscar</Button> 
+         {/*  onClick={() => { this.setState({buscar:true})}, this.getCpf}>Confirmar</Button> */}
+          </form>:<Filter comprovante/>}
         </div>
         </Switch>
+        </Scrollbar> 
         </Activity>
         </React.Fragment>
     );

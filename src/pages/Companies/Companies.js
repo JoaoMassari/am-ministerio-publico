@@ -9,17 +9,29 @@ import { compose } from 'redux'
 import { injectIntl } from 'react-intl'
 import { withRouter } from 'react-router-dom'
 import { withTheme } from '@material-ui/core/styles'
-import { Activity } from 'rmw-shell'
-
+import { Activity, Scrollbar } from 'rmw-shell'
+import Lists from '../../components/Lists/Lists'
 class Companies extends Component {
   
+  state = {
+    clicou:false
+  }
+
   render() {
+
+    const state = this.props.location.state
+    console.log('@@@ state response'+ state);
     const { intl } = this.props
     return (
       <Activity 
       root={{flexGrow:1}}     
       title={intl.formatMessage({ id: 'Relatorios' })}> 
-        
+      <Scrollbar>
+    
+      <Lists  />
+
+
+      </Scrollbar>
       </Activity>
     )
   }

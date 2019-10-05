@@ -116,13 +116,13 @@ const getMenuItems = props => {
       value: '/companies',
       /* visible: isGranted('read_companies'), */
       visible: isAuthorised,
-      primaryText: intl.formatMessage({ id: 'companies' }),
+      primaryText: intl.formatMessage({ id: 'Relatorios' }),
       leftIcon: <Business />
     },
     {
       value: '/tasks',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({ id: 'tasks' }),
+      primaryText: intl.formatMessage({ id: 'Formulario' }),
       leftIcon: <ListIcon />
     },
    /*  {
@@ -131,7 +131,9 @@ const getMenuItems = props => {
       primaryText: intl.formatMessage({ id: 'about' }),
       leftIcon: <InfoOutlined />
     }, */
-    {
+
+    //Administration
+    /* {
       visible: isAuthorised, // In prod: isGranted('administration'),
       primaryTogglesNestedList: true,
       primaryText: intl.formatMessage({ id: 'administration' }),
@@ -150,7 +152,7 @@ const getMenuItems = props => {
           leftIcon: <AccountBoxIcon />
         }
       ]
-    },
+    }, */
     {
       divider: true,
       visible: isAuthorised

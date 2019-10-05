@@ -8,6 +8,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
+import { Activity } from 'rmw-shell';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function CheckboxesGroup() {
+export default function CheckboxesGroup(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     dadosPessoais: false,
@@ -39,12 +42,11 @@ export default function CheckboxesGroup() {
     todos:false,
   });
 
-
-
+  
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked });
 
-    if(name == 'todos' && todos === false){
+    if(name === 'todos' && todos === false){
       setState({...state, 
         dadosPessoais: true,
         enderecos: true,
@@ -58,7 +60,7 @@ export default function CheckboxesGroup() {
         todos:true,
         })
     }
-    else if(name == 'todos' && todos === true){
+    else if(name === 'todos' && todos === true){
       setState({...state, 
         dadosPessoais: false,
         enderecos: false,
@@ -77,6 +79,7 @@ export default function CheckboxesGroup() {
 
   return (
     <React.Fragment>
+
     <div className={classes.root}>
       <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel component="legend"></FormLabel>
@@ -144,15 +147,8 @@ export default function CheckboxesGroup() {
       </FormControl>    
     </div>
     <Button fullWidth  variant="outlined" 
-    style={{
-        
-        /* marginTop:60,
-        marginLeft: 20,
-        marginRight: 40, */
-        
-    }}
-    /* onClick={() => {this.props.history.push({pathname: '/dashboard'});}}>Buscar</Button> */
-    /* onClick={() => {this.setState({buscar:true})}} */>Confirmar</Button>
+     /*  onClick={this.props.history.push({pathname: '/dashboard'})} */>Buscar</Button>  
+      {/*    onClick= {getUsers('123')}>Buscar</Button> */}
     </React.Fragment>
   );
 }
